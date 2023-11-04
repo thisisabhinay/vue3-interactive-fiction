@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { SceneExpander, SceneDescription } from "@/components"
+import { SceneLoader, SceneDescription } from "@/components"
+import { Scene2 } from "@/scenes"
 import { h } from "vue"
 
-const moreScene = h("SceneDescription", { id: "SceneIntro-2" }, "")
+const moreScene = h("SceneDescription", { id: "SceneIntro-2" }, "More scene here")
 </script>
 <template>
   <section id="SceneIntroMore">
@@ -11,7 +12,7 @@ const moreScene = h("SceneDescription", { id: "SceneIntro-2" }, "")
       Amongst this chaos, You are a young boy who wanders through these surreal streets, unaware of
       the destiny about to unfold.
     </SceneDescription>
-    <SceneExpander label="Keep Walking" :scene="moreScene" />
+    <SceneLoader label="Keep walking" :scene="Scene2" />
   </section>
 </template>
 

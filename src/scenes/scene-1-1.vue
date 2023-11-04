@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { SceneExpander, SceneDescription } from "@/components"
-import { SceneIntroMore } from "@/scenes"
-import { h } from "vue"
+import { Scene1_2 } from "@/scenes"
 </script>
+
 <template>
   <section id="SceneIntro">
     <SceneDescription narration>
@@ -11,7 +11,7 @@ import { h } from "vue"
       events are happening all around - sudden explosions, strange disruptions to the environment,
       and odd, unexplained natural occurrences. He seems perturbed by the chaos as he keeps moving.
     </SceneDescription>
-    <SceneExpander label="Continue" :scene="SceneIntroMore" />
+    <SceneExpander label="Continue" :scene="Scene1_2" />
   </section>
 </template>
 
