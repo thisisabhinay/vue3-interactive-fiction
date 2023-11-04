@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { SceneIntro } from "@/scenes"
+</script>
 
 <template>
-  <main>Game begins</main>
+  <main>
+    <SceneIntro />
+  </main>
 </template>
