@@ -14,7 +14,7 @@ const loadScene = ref<boolean>(false)
   <component v-if="loadScene" :is="scene" />
   <div
     v-else
-    class="text-blue-400 text-base font-medium cursor-pointer ease-in hover:text-blue-600 py-3"
+    class="text-blue-400 text-base font-medium cursor-pointer ease-in hover:text-blue-600 py-3 w-max"
     @click="loadScene = true"
   >
     {{ label }}

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  narration: boolean
+  narration?: boolean
 }>()
 </script>
 
