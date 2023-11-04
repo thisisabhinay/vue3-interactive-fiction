@@ -7,9 +7,10 @@ import { Scene1_1 } from "@/scenes"
   <section id="SceneKeepWalk1">
     <SceneDescription>
       You, now engrossed in your daily routine, fails to recall the peculiar encounter with the cat
-      and the warning about the impending doom. As youy goes about your chores, a sudden flash of
-      blinding light envelops everything around you. The air ripples, and the town of Arcadia is
-      flooded with an overwhelming, blinding white light.
+      and the warning about the impending doom. As you are going about your chores, you slowly but
+      surely starts to feel an eerie vibration first on skin and then to the core of your being. A
+      sudden flash of blinding light envelops everything around you. The air ripples, and the town
+      of Arcadia? No! The whole universe is flooded with an overwhelming, blinding white light.
     </SceneDescription>
 
     <SceneDescription>
