@@ -27,7 +27,13 @@ onUnmounted(() => {
 
 <template>
   <div id="InteractionPawUp" @mousemove="mouseMoveHandler" class="parallax-container">
-    <div class="parallax" @click="() => emit('flag', true)" ref="el" />
+    <div
+      class="parallax flex items-center justify-center"
+      @click="() => emit('flag', true)"
+      ref="el"
+    >
+      <div>Feeling compelled, you gaze upwards and, to your amazement</div>
+    </div>
   </div>
 </template>
 

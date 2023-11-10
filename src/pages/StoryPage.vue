@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SceneDescription } from "@/components"
+import { SceneDescription, BracketLine } from "@/components"
 import { PatCat, PawUp, CatSpeaking } from "@/interactions"
 import { ref } from "vue"
 
@@ -17,6 +17,7 @@ const translated = ref<boolean>(false)
       evening, you notice a peculiar occurrence: a cat walking alongside you, almost as if it's
       attempting to guide you.
     </SceneDescription>
+    <BracketLine top />
     <PatCat @flag="(value) => (isCatPatted = value)" />
     <SceneDescription v-if="isCatPatted">
       This cat, an enigmatic feline with a striking appearance, appeares beside you as you walking
@@ -28,7 +29,7 @@ const translated = ref<boolean>(false)
       Preoccupied, barely acknowledging the cat's presence, you focus on continuing your walk
       through the town square.
     </SceneDescription>
-    <div class="h-px bg-gray-800 w-full" />
+    <BracketLine bottom />
     <SceneDescription>
       Just as you're about to dismiss it as a figment of your imagination and continuing your walk
       through the town square, the cat unexpectedly halts your steps. It stands on its hind legs,
@@ -44,6 +45,7 @@ const translated = ref<boolean>(false)
       As you returned your gaze down, the cat is looking directly at you, her mouth moving in what
       seems like speech. Your eyes widen in shock as you realizes you can now hear the cat's voice!
     </SceneDescription>
+    <BracketLine top />
     <CatSpeaking @flag="(value) => (translated = value)" />
     <div v-if="translated">
       <SceneDescription>
@@ -71,7 +73,7 @@ const translated = ref<boolean>(false)
         you.
       </SceneDescription>
     </div>
-    <div class="h-px bg-gray-800 w-full" />
+    <BracketLine bottom />
     <SceneDescription> THE END </SceneDescription>
   </main>
 </template>
