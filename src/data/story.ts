@@ -49,12 +49,19 @@ const sampleStory: Scene[] = [
     name: "LENA",
     avatar: "lena-eye-raise.png",
     type: "dialogue",
-    text: ["Really? Give me one.", "Buzz pauses, processing through his database."]
+    text: ["Really? Give me one."]
+  },
+
+  {
+    name: null,
+    avatar: null,
+    type: "narration",
+    text: ["Buzz pauses, processing through his database."]
   },
 
   {
     name: "BUZZ",
-    avatar: "buzz-deadpan.png",
+    avatar: "buzz-calm.png",
     type: "dialogue",
     text: ["Why did the robot go to outer space?"]
   },
