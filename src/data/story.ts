@@ -19,7 +19,10 @@ const sampleStory: Scene[] = [
     name: "BUZZ",
     avatar: "buzz-serious.png",
     type: "dialogue",
-    text: ["Fear not, Captain Lena! I shall fix the navigational anomaly at once."]
+    text: [
+      "Fear not, Captain Lena! I shall fix the navigational anomaly at once.",
+      "Ugh, this navigation system is driving me insane. Buzz, can't you do something about it?"
+    ]
   },
 
   {
@@ -100,8 +103,14 @@ const sampleStory: Scene[] = [
     name: "BUZZ",
     avatar: "buzz-appreciative.png",
     type: "dialogue",
+    text: ["Thank you, Captain. I strive to keep the mood light and entertaining."]
+  },
+
+  {
+    name: null,
+    avatar: null,
+    type: "narration",
     text: [
-      "Thank you, Captain. I strive to keep the mood light and entertaining.",
       "Suddenly, the spaceship jolts, causing Lena to stumble. Zogg lets out a startled yelp, its fur standing on end."
     ]
   },
