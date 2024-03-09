@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SceneExpander, SceneDescription } from "@/components"
+import { GameRoom, SceneDescription } from "@/components"
 import { Scene1_2 } from "@/scenes"
 </script>
 
@@ -11,7 +11,7 @@ import { Scene1_2 } from "@/scenes"
       events are happening all around - sudden explosions, strange disruptions to the environment,
       and odd, unexplained natural occurrences. He seems perturbed by the chaos as he keeps moving.
     </SceneDescription>
-    <SceneExpander label="Continue" :scene="Scene1_2" />
+    <GameRoom label="Continue" :scene="Scene1_2" />
   </section>
 </template>
 
