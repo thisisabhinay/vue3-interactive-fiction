@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import OpeningRoom from "@/rooms/opening-room.vue"
 import InteractionPanel from "@/components/interaction-panel.vue"
-import { inject, onBeforeMount, watchEffect, provide, ref } from "vue"
+import { inject, onBeforeMount, provide, ref } from "vue"
 
 const { scene, sceneKey, loadScene } = inject<any>("sceneLoader")
 const playerAction = ref<string>("")
@@ -20,11 +20,6 @@ provide("player-action", {
 })
 
 onBeforeMount(loadStartScene)
-
-watchEffect(() => {
-  console.log("sceneKey", sceneKey.value)
-  console.log("scene", scene)
-})
 </script>
 
 <template>
