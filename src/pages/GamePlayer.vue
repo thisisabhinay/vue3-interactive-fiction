@@ -5,9 +5,14 @@ import { inject, onBeforeMount, provide, ref } from "vue"
 
 const { scene, sceneKey, loadScene } = inject<any>("sceneLoader")
 const playerAction = ref<string>("")
+const allowedActions = ref<string[]>()
 
 function updatePlayerAction(name: string) {
   playerAction.value = playerAction.value !== name ? name : ""
+}
+
+function updateAllowedAction(actions: string[]) {
+  allowedActions.value = actions ?? null
 }
 
 function loadStartScene() {
@@ -17,6 +22,11 @@ function loadStartScene() {
 provide("player-action", {
   playerAction,
   updatePlayerAction
+})
+
+provide("allowed-player-actions", {
+  allowedActions,
+  updateAllowedAction
 })
 
 onBeforeMount(loadStartScene)
