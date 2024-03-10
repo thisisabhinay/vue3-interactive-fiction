@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { type ListChoice } from "@/types/story"
+import { type PlayerInteraction } from "@/types/interaction"
 import SpeechText from "@/components/speech-text.vue"
 import SceneDescription from "@/components/scene-description.vue"
 import playerInteractionsOpeningRoom from "@/interactions/opening-room"
+import InteractionDescription from "@/components/interaction-description.vue"
 import ListChoices from "@/components/list-choices.vue"
 import SceneRoom1_1 from "@/scenes/scene-room-1-1.vue"
 import SceneRoom1_2 from "@/scenes/scene-room-1-2.vue"
 import SceneRoom1_3 from "@/scenes/scene-room-1-3.vue"
 import { INTERACTIVE_SELECTOR } from "@/constants/selectors"
-import { watch, inject } from "vue"
+import { actions } from "@/constants/player-actions"
+import { watch, inject, ref, watchEffect, toRaw } from "vue"
 
 const storyChoices: ListChoice[] = [
   { text: "Attempt to move: (Test the physical constraints of this world)", scene: SceneRoom1_1 },
@@ -18,15 +21,39 @@ const storyChoices: ListChoice[] = [
 
 const { playerAction } = inject<any>("player-action")
 
+const actionName = ref<string>()
+const actionDescription = ref<string>()
+
+const playerInteractions = ref<PlayerInteraction[]>([])
+
+function updatePlayerInteractions(data: PlayerInteraction) {
+  console.log(data)
+
+  const existingInteraction = playerInteractions.value?.find(
+    (intercation) => intercation.label === data.label
+  )
+
+  if (existingInteraction) return
+
+  playerInteractions.value = [...toRaw(playerInteractions.value), data]
+}
+
 function triggerInteraction(event: Event) {
-  console.log(event)
+  if (!playerAction.value) return
+
   const el = event.target as HTMLElement
   const targetName = el.innerText
   const interaction = playerInteractionsOpeningRoom?.find(
     (interaction) => interaction.target === targetName
   )
 
-  console.log(targetName, interaction[playerAction.value])
+  const actionTable = interaction ? interaction[playerAction.value] : null
+  const action = actions.find((action) => action.key === playerAction.value)
+
+  updatePlayerInteractions({
+    label: `${action?.name}: ${interaction?.target}`,
+    description: actionTable?.ifDefault
+  })
 }
 
 function attachEventListeners() {
@@ -39,6 +66,10 @@ function attachEventListeners() {
 }
 
 watch(playerAction, attachEventListeners)
+
+watchEffect(() => {
+  console.log("playerInteractions: ", playerInteractions.value)
+})
 </script>
 
 <template>
@@ -58,6 +89,12 @@ watch(playerAction, attachEventListeners)
       subconscious. Reality here is… malleable. Your will is your tool and your mind, the clay.
     </SpeechText>
   </SceneDescription>
+
+  <template v-for="(interaction, index) in playerInteractions" :key="index">
+    <InteractionDescription :text="interaction.label">
+      <div>{{ interaction.description }}</div>
+    </InteractionDescription>
+  </template>
   <ListChoices :choices="storyChoices" />
 </template>
 

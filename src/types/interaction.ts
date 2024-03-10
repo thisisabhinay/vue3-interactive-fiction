@@ -5,3 +5,8 @@ export interface Interaction {
     [key: `if${string}`]: string
   }
 }
+
+export interface PlayerInteraction {
+  label: string
+  description?: string
+}

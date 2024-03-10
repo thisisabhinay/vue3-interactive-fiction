@@ -30,6 +30,7 @@ onMounted(() => {
   container.value?.setAttribute(SCENE_OG_HTML_ATTR, container.value?.innerHTML)
   updateMarkup(playerAction.value)
 })
+
 watch(playerAction, (action: string) => updateMarkup(action))
 </script>
 
