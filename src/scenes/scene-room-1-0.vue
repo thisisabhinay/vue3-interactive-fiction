@@ -5,7 +5,7 @@ import SceneDescription from "@/components/scene-description.vue"
 
 <template>
   <SceneDescription>
-    <p>
+    <p class="first-letter:text-4xl first-letter:font-bold">
       The world is a blur. Colors swirl and drip like melting wax over your vision. You try to speak
       but only a croaking whisper escapes. A prickling tingle fills your limbs. Are you asleep?
       Awake? Somewhere in between?
