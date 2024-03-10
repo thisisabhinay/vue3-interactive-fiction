@@ -1,6 +1,6 @@
 export interface Interaction {
   target: string
-  [key: `x${string}`]: {
+  [key: `action-${string}`]: {
     ifDefault: string
     [key: `if${string}`]: string
   }
