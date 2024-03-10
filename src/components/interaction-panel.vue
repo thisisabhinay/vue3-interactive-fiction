@@ -3,10 +3,11 @@ import { inject, watchEffect } from "vue"
 import actions from "@/constants/player-actions"
 
 const { playerAction, updatePlayerAction } = inject<any>("player-action")
-const { allowedActions, updateAllowedAction } = inject<any>("allowed-player-actions")
+const { allowedActions } = inject<any>("allowed-player-actions")
 
 watchEffect(() => console.log("Player action: ", playerAction.value))
 </script>
+
 <template>
   <footer id="InteractionPanel" class="fixed bottom-0 left-0 right-0">
     <div class="flex items-center gap-2 max-w-2xl m-auto justify-between bg-[#181818] p-8">

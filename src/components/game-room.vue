@@ -22,7 +22,9 @@ const roomNameIdentifier = computed(() => props.name?.toLowerCase()?.split(" ").
         {{ name }}
       </span>
     </div>
-    <slot />
+    <div class="game-room-content" :data-room="roomNameIdentifier">
+      <slot />
+    </div>
   </section>
 </template>
 
