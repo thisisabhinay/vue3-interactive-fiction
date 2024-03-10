@@ -18,6 +18,20 @@ const playerInteractionsOpeningRoom: Interaction[] = [
       ifDefault:
         "Your attempt at speech comes out as a tortured rasp, echoing strangely within the amorphous space. The sound distorts and warps as it leaves you."
     }
+  },
+  {
+    "target": "A prickling tingle",
+    "action-look-at": {
+      ifDefault:
+        "There is no visible source for the prickling, but as you focus, it seems to intensify. The tingling begins to resemble tiny figures crawling just beneath the surface of your skin."
+    }
+  },
+  {
+    "target": "disembodied voice",
+    "action-look-at": {
+      ifDefault:
+        "Concentrating on the voice reveals a hazy form emerging from the mist. It's a tall, thin silhouette with swirling shadow in place of features."
+    }
   }
 ]
 

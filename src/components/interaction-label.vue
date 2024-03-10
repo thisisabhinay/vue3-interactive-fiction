@@ -10,7 +10,7 @@ defineProps<{
     <div v-if="isStoryChoice" class="rounded-full bg-blue-500 h-2 w-2"></div>
     <span
       class="text-xs tracking-wide"
-      :class="isStoryChoice ? 'text-blue-500' : 'text-gray-500 uppercase font-semibold'"
+      :class="isStoryChoice ? 'text-blue-400' : 'text-gray-500 uppercase font-semibold'"
       >{{ text }}</span
     >
   </div>
