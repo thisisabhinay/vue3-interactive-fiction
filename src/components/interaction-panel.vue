@@ -1,51 +1,10 @@
 <script setup lang="ts">
-const actions = [
-  {
-    name: "Give",
-    key: "action-give",
-    color: "lime-500"
-  },
-  {
-    name: "Open",
-    key: "action-open",
-    color: "yellow-500"
-  },
-  {
-    name: "Close",
-    key: "action-close",
-    color: "pink-500"
-  },
-  {
-    name: "Pick up",
-    key: "action-pick-up",
-    color: "teal-500"
-  },
-  {
-    name: "Look at",
-    key: "action-look-at",
-    color: "blue-500"
-  },
-  {
-    name: "Talk to",
-    key: "action-talk-to",
-    color: "amber-500"
-  },
-  {
-    name: "Use",
-    key: "action-use",
-    color: "indigo-500"
-  },
-  {
-    name: "Push",
-    key: "action-push",
-    color: "red-500"
-  },
-  {
-    name: "Pull",
-    key: "action-pull",
-    color: "purple-500"
-  }
-]
+import { inject, watchEffect } from "vue"
+import actions from "@/constants/player-actions"
+
+const { playerAction, updatePlayerAction } = inject<any>("player-action")
+
+watchEffect(() => console.log("Player action: ", playerAction.value))
 </script>
 <template>
   <footer id="InteractionPanel" class="fixed bottom-0 left-0 right-0">
@@ -54,6 +13,7 @@ const actions = [
         <span
           class="font-semibold inline-block text-gray-900 underline dark:text-gray-300 hover:text-white cursor-pointer"
           :class="`decoration-${action.color}`"
+          @click="() => updatePlayerAction(action.key)"
         >
           {{ action.name }}
         </span>

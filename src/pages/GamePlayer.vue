@@ -1,13 +1,23 @@
 <script setup lang="ts">
 import OpeningRoom from "@/rooms/opening-room.vue"
 import InteractionPanel from "@/components/interaction-panel.vue"
-import { inject, onBeforeMount, watchEffect } from "vue"
+import { inject, onBeforeMount, watchEffect, provide, ref } from "vue"
 
 const { scene, sceneKey, loadScene } = inject<any>("sceneLoader")
+const playerAction = ref<string>("")
+
+function updatePlayerAction(name: string) {
+  playerAction.value = name
+}
 
 function loadStartScene() {
   loadScene(OpeningRoom)
 }
+
+provide("player-action", {
+  playerAction,
+  updatePlayerAction
+})
 
 onBeforeMount(loadStartScene)
 
