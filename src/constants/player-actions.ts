@@ -1,4 +1,4 @@
-const actions = [
+export const actions = [
   {
     name: "Give",
     key: "action-give",
@@ -50,5 +50,3 @@ const actions = [
     color: "rose-400"
   }
 ]
-
-export default actions

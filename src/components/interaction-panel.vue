@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { inject, watchEffect } from "vue"
-import actions from "@/constants/player-actions"
+import { actions } from "@/constants/player-actions"
 
 const { playerAction, updatePlayerAction } = inject<any>("player-action")
 const { allowedActions } = inject<any>("allowed-player-actions")
