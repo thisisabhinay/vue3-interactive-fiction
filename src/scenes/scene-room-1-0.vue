@@ -1,10 +1,22 @@
 <script setup lang="ts">
+import { type ListChoice } from "@/types/story"
 import SpeechText from "@/components/speech-text.vue"
 import SceneDescription from "@/components/scene-description.vue"
+import playerInteractionsOpeningRoom from "@/interactions/opening-room"
+import ListChoices from "@/components/list-choices.vue"
+import SceneRoom1_1 from "@/scenes/scene-room-1-1.vue"
+import SceneRoom1_2 from "@/scenes/scene-room-1-2.vue"
+import SceneRoom1_3 from "@/scenes/scene-room-1-3.vue"
+
+const storyChoices: ListChoice[] = [
+  { text: "Attempt to move: (Test the physical constraints of this world)", scene: SceneRoom1_1 },
+  { text: "'Who are you?'': (Seek information on the voice and this place)", scene: SceneRoom1_2 },
+  { text: "Focus on the voice: (Try to discern a location or source)", scene: SceneRoom1_3 }
+]
 </script>
 
 <template>
-  <SceneDescription>
+  <SceneDescription :interactions="playerInteractionsOpeningRoom">
     <p class="first-letter:text-4xl first-letter:font-bold">
       The world is a blur. Colors swirl and drip like melting wax over your vision. You try to speak
       but only a croaking whisper escapes. A prickling tingle fills your limbs. Are you asleep?
@@ -17,6 +29,7 @@ import SceneDescription from "@/components/scene-description.vue"
       subconscious. Reality here is… malleable. Your will is your tool and your mind, the clay.
     </SpeechText>
   </SceneDescription>
+  <ListChoices :choices="storyChoices" />
 </template>
 
 <style scoped></style>
