@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import InteractionDescription from "@/components/interaction-description.vue"
 import { ref } from "vue"
 
 defineProps<{
@@ -10,8 +11,9 @@ const loadScene = ref<boolean>(false)
 </script>
 
 <template>
-  <div v-if="loadScene" class="py-3">{{ label }}</div>
-  <component v-if="loadScene" :is="scene" />
+  <InteractionDescription v-if="loadScene" :text="label" isStoryChoice>
+    <component :is="scene" />
+  </InteractionDescription>
   <div
     v-else
     class="text-blue-400 text-base font-medium cursor-pointer ease-in hover:text-blue-600 py-3 w-max"
