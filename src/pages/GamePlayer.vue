@@ -7,7 +7,7 @@ const { scene, sceneKey, loadScene } = inject<any>("sceneLoader")
 const playerAction = ref<string>("")
 
 function updatePlayerAction(name: string) {
-  playerAction.value = name
+  playerAction.value = playerAction.value !== name ? name : ""
 }
 
 function loadStartScene() {

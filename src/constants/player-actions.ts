@@ -43,6 +43,11 @@ const actions = [
     name: "Pull",
     key: "action-pull",
     color: "purple-500"
+  },
+  {
+    name: "Touch",
+    key: "action-touch",
+    color: "rose-400"
   }
 ]
 
