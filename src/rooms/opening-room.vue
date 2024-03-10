@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type ListChoice } from "@/types/story"
+import GameRoom from "@/components/game-room.vue"
 // import playerInteractionsOpeningRoom from "@/components/interactions/opening-room"
 import ListChoices from "@/components/list-choices.vue"
 import SceneRoom1_0 from "@/scenes/scene-room-1-0.vue"
@@ -15,10 +16,10 @@ const storyChoices: ListChoice[] = [
 </script>
 
 <template>
-  <section id="SceneIntro">
+  <GameRoom name="Opening Scene">
     <SceneRoom1_0 />
     <ListChoices :choices="storyChoices" />
-  </section>
+  </GameRoom>
 </template>
 
 <style scoped></style>
