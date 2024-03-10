@@ -7,7 +7,16 @@ defineProps<{
   scene: any
 }>()
 
+const emit = defineEmits<{
+  (e: "click"): void
+}>()
+
 const loadScene = ref<boolean>(false)
+
+function clickHandler() {
+  loadScene.value = true
+  emit("click")
+}
 </script>
 
 <template>
@@ -17,7 +26,7 @@ const loadScene = ref<boolean>(false)
   <div
     v-else
     class="text-blue-400 text-base font-medium cursor-pointer ease-in hover:text-blue-600 py-3 w-max"
-    @click="loadScene = true"
+    @click="clickHandler"
   >
     {{ label }}
   </div>
