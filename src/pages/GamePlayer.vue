@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Scene1_1 } from "@/scenes"
+import OpeningRoom from "@/rooms/opening-room.vue"
 import { inject, onBeforeMount, watchEffect } from "vue"
 
 const { scene, sceneKey, loadScene } = inject<any>("sceneLoader")
 
 function loadStartScene() {
-  loadScene(Scene1_1)
+  loadScene(OpeningRoom)
 }
 
 onBeforeMount(loadStartScene)
@@ -17,7 +17,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <main>
+  <main class="grid grid-cols-1 auto-rows-max justify-between">
     <component :key="sceneKey" :is="scene?.component" />
   </main>
 </template>
