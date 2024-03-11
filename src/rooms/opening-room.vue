@@ -7,7 +7,7 @@ import { inject, onBeforeMount } from "vue"
 const { updateAllowedAction } = inject<any>("allowed-player-actions")
 
 function setAllowedPlayerActions() {
-  const gameRoomActions = playerInteractionsOpeningRoom
+  const gameRoomActions = playerInteractionsOpeningRoom // Need to dynamically add player rooms
     ?.map((intercation) => Object.keys(intercation).filter((key) => key !== "target"))
     .flat()
 

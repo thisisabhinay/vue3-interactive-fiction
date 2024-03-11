@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import OpeningRoom from "@/rooms/opening-room.vue"
 import InteractionPanel from "@/components/interaction-panel.vue"
+import { gameAction } from "@/constants/player-actions"
 import { inject, onBeforeMount, provide, ref } from "vue"
 
 const { scene, sceneKey, loadScene } = inject<any>("sceneLoader")
-const playerAction = ref<string>("")
+const playerAction = ref<gameAction>()
 const allowedActions = ref<string[]>()
 
-function updatePlayerAction(name: string) {
-  playerAction.value = playerAction.value !== name ? name : ""
+function updatePlayerAction(name: gameAction) {
+  playerAction.value = playerAction.value !== name ? name : null
 }
 
 function updateAllowedAction(actions: string[]) {
